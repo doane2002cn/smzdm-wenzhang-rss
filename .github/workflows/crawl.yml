@@ -9,6 +9,9 @@ on:
 permissions:
   contents: write
 
+env:
+  TZ: Asia/Shanghai
+
 concurrency:
   group: smzdm-crawl
   cancel-in-progress: false
