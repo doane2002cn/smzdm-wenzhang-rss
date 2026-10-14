@@ -398,49 +398,63 @@ def fetch_search_rows(
             "Object.defineProperty(navigator, 'webdriver', {get: () => undefined});"
         )
         page = context.new_page()
-        page.goto(url, wait_until="domcontentloaded", timeout=60000)
-        page.wait_for_timeout(4500)
-        raw_items = page.evaluate(
-            """
-            ({ selector, limit }) => {
-              const rows = [];
-              const links = Array.from(document.querySelectorAll(selector)).slice(0, limit);
-              for (const link of links) {
-                if (link.closest('.feed-side, .global-nav, footer')) continue;
-                const title = (link.textContent || '').trim();
-                if (!title || title.length < 5) continue;
-                let container = link;
-                for (let depth = 0; depth < 6 && container.parentElement; depth += 1) {
-                  container = container.parentElement;
-                  const candidate = (container.innerText || '').trim();
-                  if (
-                    candidate.includes(title) &&
-                    (/\\b\\d{1,2}:\\d{2}\\b/.test(candidate) || candidate.length > 180)
-                  ) {
-                    break;
-                  }
-                }
-                const text = (container.innerText || '').trim();
-                const timeMatch = text.match(/\\b\\d{1,2}:\\d{2}\\b/);
-                const numeric = Array.from(
-                  container.querySelectorAll('a, span')
+        raw_items: list[dict] = []
+        last_error: Exception | None = None
+        for attempt in range(3):
+            try:
+                if attempt == 0:
+                    page.goto(url, wait_until="domcontentloaded", timeout=60000)
+                else:
+                    page.reload(wait_until="domcontentloaded", timeout=60000)
+                page.wait_for_timeout(7000)
+                raw_items = page.evaluate(
+                    """
+                    ({ selector, limit }) => {
+                      const rows = [];
+                      const links = Array.from(document.querySelectorAll(selector)).slice(0, limit);
+                      for (const link of links) {
+                        if (link.closest('.feed-side, .global-nav, footer')) continue;
+                        const title = (link.textContent || '').trim();
+                        if (!title || title.length < 5) continue;
+                        let container = link;
+                        for (let depth = 0; depth < 6 && container.parentElement; depth += 1) {
+                          container = container.parentElement;
+                          const candidate = (container.innerText || '').trim();
+                          if (
+                            candidate.includes(title) &&
+                            (/\\b\\d{1,2}:\\d{2}\\b/.test(candidate) || candidate.length > 180)
+                          ) {
+                            break;
+                          }
+                        }
+                        const text = (container.innerText || '').trim();
+                        const timeMatch = text.match(/\\b\\d{1,2}:\\d{2}\\b/);
+                        const numeric = Array.from(
+                          container.querySelectorAll('a, span')
+                        )
+                          .map((node) => (node.textContent || '').trim())
+                          .filter((value) => /^\\d+$/.test(value))
+                          .map(Number);
+                        rows.push({
+                          title,
+                          href: link.href,
+                          time: timeMatch ? timeMatch[0] : '',
+                          text: text.slice(0, 500),
+                          numeric,
+                        });
+                      }
+                      return rows;
+                    }
+                    """,
+                    {"selector": link_selector, "limit": limit},
                 )
-                  .map((node) => (node.textContent || '').trim())
-                  .filter((value) => /^\\d+$/.test(value))
-                  .map(Number);
-                rows.push({
-                  title,
-                  href: link.href,
-                  time: timeMatch ? timeMatch[0] : '',
-                  text: text.slice(0, 500),
-                  numeric,
-                });
-              }
-              return rows;
-            }
-            """,
-            {"selector": link_selector, "limit": limit},
-        )
+                if raw_items:
+                    break
+            except Exception as exc:
+                last_error = exc
+                page.wait_for_timeout(4000)
+        if not raw_items and last_error:
+            print(f"  跳过搜索页 {keyword}: {last_error}")
         browser.close()
     return raw_items
 
