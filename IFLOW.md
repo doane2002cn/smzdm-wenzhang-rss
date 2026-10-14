@@ -55,6 +55,8 @@ smzdm-wenzhang-rss/
 - **自动发布**: 抓取完成后更新 `main` 分支的 `docs/` 目录
 - **Pages 重建**: `main/docs` 更新后由 GitHub Pages 自动重新构建
 - **说明**: 不再维护额外的 `gh-pages` 分支
+- **RSS**: `https://doane2002cn.github.io/smzdm-wenzhang-rss/daily_digest.xml`
+- **完整社区日榜**: `https://doane2002cn.github.io/smzdm-wenzhang-rss/community_daily_rank.md`
 
 ### 3. Huginn 配置
 

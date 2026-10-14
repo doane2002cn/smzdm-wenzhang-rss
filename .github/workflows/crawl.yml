@@ -36,19 +36,33 @@ jobs:
         python -m pip install --upgrade pip
         pip install -r requirements.txt
 
+    - name: 缓存Playwright浏览器
+      uses: actions/cache@v4
+      with:
+        path: ~/.cache/ms-playwright
+        key: playwright-${{ runner.os }}-${{ hashFiles('requirements.txt') }}
+
     - name: 安装Playwright浏览器
       run: |
         python -m playwright install --with-deps chromium
 
-    - name: 运行爬虫
+    - name: 生成每日精选和RSS
       run: |
-        python crawler.py
+        python scripts/build_digest.py \
+          --output docs/daily_digest.md \
+          --json-output docs/daily_digest.json \
+          --public-url https://doane2002cn.github.io/smzdm-wenzhang-rss
 
     - name: 提交并推送更新
       run: |
         git config --local user.email "action@github.com"
         git config --local user.name "GitHub Action"
-        git add docs/index.html docs/articles.json
+        git add \
+          docs/daily_digest.md \
+          docs/daily_digest.json \
+          docs/daily_digest.xml \
+          docs/community_daily_rank.md \
+          docs/community_daily_rank.json
         if git diff --staged --quiet; then
           echo "内容没有变化，跳过提交"
         else
