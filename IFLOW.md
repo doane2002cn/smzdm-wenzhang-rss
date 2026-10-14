@@ -20,13 +20,13 @@ GitHub Actions (每小时) → 爬取什么值得买 → 生成HTML页面 → Gi
 - **GitHub Actions**: 定时任务和自动化部署
 - **GitHub Pages**: 静态页面托管
 - **Huginn**: RSS 生成和内容处理
-- **BeautifulSoup**: HTML 解析
-- **Requests**: HTTP 请求处理
+- **Crawl4AI**: 浏览器渲染与页面抓取
+- **Playwright**: 无头 Chromium 运行环境
 
 ## 项目结构
 
 ```
-crawl4ai-rss/
+smzdm-wenzhang-rss/
 ├── .github/workflows/
 │   └── crawl.yml              # GitHub Actions 工作流配置
 ├── docs/
@@ -46,17 +46,20 @@ crawl4ai-rss/
    - 进入 Settings → Pages
    - Source 选择 "Deploy from a branch"
    - Branch 选择 "main" 和 "/docs" 文件夹
+3. 如果是 fork 仓库，进入 Actions 页面并按提示启用工作流
 
 ### 2. GitHub Actions 配置
 
 - **定时运行**: 每小时自动运行一次
 - **手动触发**: 可通过 GitHub 界面手动运行
-- **自动部署**: 成功后自动部署到 GitHub Pages
+- **自动发布**: 抓取完成后更新 `main` 分支的 `docs/` 目录
+- **Pages 重建**: `main/docs` 更新后由 GitHub Pages 自动重新构建
+- **说明**: 不再维护额外的 `gh-pages` 分支
 
 ### 3. Huginn 配置
 
 #### 3.1 创建 Website Agent
-- **URL**: 您的 GitHub Pages 地址 (`https://username.github.io/repo-name/`)
+- **URL**: `https://doane2002cn.github.io/smzdm-wenzhang-rss/`
 - **Mode**: on_change
 - **Update Every**: 30 分钟
 - **Expected Update Period In Seconds**: 1800
@@ -78,7 +81,7 @@ crawl4ai-rss/
 - **Source**: 选择上面的 HTML Extractor Agent
 - **Title**: 什么值得买 - 最新文章
 - **Description**: 什么值得买网站最新文章RSS订阅
-- **Link**: 您的 GitHub Pages 地址
+- **Link**: `https://doane2002cn.github.io/smzdm-wenzhang-rss/`
 
 ## 本地开发
 
@@ -86,6 +89,7 @@ crawl4ai-rss/
 
 ```bash
 pip install -r requirements.txt
+python -m playwright install chromium
 ```
 
 ### 运行爬虫
@@ -109,7 +113,7 @@ python crawler.py
 ## 监控和维护
 
 - **GitHub Actions**: 在 Actions 标签页查看运行历史
-- **GitHub Pages**: 访问 `https://username.github.io/repo-name/` 查看生成的页面
+- **GitHub Pages**: 访问 `https://doane2002cn.github.io/smzdm-wenzhang-rss/` 查看生成的页面
 - **Huginn**: 在 Huginn 界面监控 Agent 运行状态
 
 ## 故障排除

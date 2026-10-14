@@ -1,56 +1,54 @@
 name: 爬取什么值得买内容
 
 on:
-  push:
-    branches: [ main ]
   schedule:
     # 每小时运行一次 (在每小时的第0分钟)
     - cron: '0 * * * *'
   workflow_dispatch:
 
+permissions:
+  contents: write
+
+concurrency:
+  group: smzdm-crawl
+  cancel-in-progress: false
+
 jobs:
   crawl:
     runs-on: ubuntu-latest
-    
+
     steps:
     - name: 检出代码
       uses: actions/checkout@v4
-      
+
     - name: 设置Python环境
-      uses: actions/setup-python@v4
+      uses: actions/setup-python@v5
       with:
         python-version: '3.11'
-        
+        cache: pip
+        cache-dependency-path: requirements.txt
+
     - name: 安装依赖
       run: |
         python -m pip install --upgrade pip
         pip install -r requirements.txt
-        
+
     - name: 安装Playwright浏览器
       run: |
-        playwright install chromium
-        
+        python -m playwright install --with-deps chromium
+
     - name: 运行爬虫
       run: |
         python crawler.py
-        
-    - name: 部署到GitHub Pages
-      uses: peaceiris/actions-gh-pages@v3
-      if: success()
-      with:
-        github_token: ${{ secrets.GITHUB_TOKEN }}
-        publish_dir: ./docs
-        force_orphan: true
-        
-    - name: 提交更改
+
+    - name: 提交并推送更新
       run: |
         git config --local user.email "action@github.com"
         git config --local user.name "GitHub Action"
         git add docs/index.html docs/articles.json
-        git diff --staged --quiet || git commit -m "自动更新爬取内容 $(date '+%Y-%m-%d %H:%M:%S')"
-        
-    - name: 推送更改
-      uses: ad-m/github-push-action@master
-      with:
-        github_token: ${{ secrets.GITHUB_TOKEN }}
-        branch: ${{ github.ref }}
+        if git diff --staged --quiet; then
+          echo "内容没有变化，跳过提交"
+        else
+          git commit -m "自动更新爬取内容 $(TZ=Asia/Shanghai date '+%Y-%m-%d %H:%M:%S')"
+          git push
+        fi
