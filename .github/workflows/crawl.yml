@@ -2,8 +2,8 @@ name: 爬取什么值得买内容
 
 on:
   schedule:
-    # 每小时运行一次 (在每小时的第0分钟)
-    - cron: '0 * * * *'
+    # 每小时第55分钟运行，避开GitHub整点调度高峰
+    - cron: '55 * * * *'
   workflow_dispatch:
 
 permissions:
