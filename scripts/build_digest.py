@@ -211,6 +211,16 @@ def parse_datetime(value: str) -> datetime | None:
     if not value:
         return None
     value = value.strip()
+    now = datetime.now(TZ)
+    relative = re.fullmatch(r"(今天|昨天|前天)\s+(\d{1,2}:\d{2})", value)
+    if relative:
+        day = {"今天": 0, "昨天": 1, "前天": 2}[relative.group(1)]
+        parsed_time = datetime.strptime(relative.group(2), "%H:%M").time()
+        return datetime.combine(
+            (now - timedelta(days=day)).date(),
+            parsed_time,
+            tzinfo=TZ,
+        )
     formats = [
         "%a, %d %b %Y %H:%M:%S %z",
         "%Y-%m-%d %H:%M:%S",
@@ -221,10 +231,10 @@ def parse_datetime(value: str) -> datetime | None:
         try:
             parsed = datetime.strptime(value, fmt)
             if fmt == "%m-%d %H:%M":
-                now = datetime.now(TZ)
                 parsed = parsed.replace(year=now.year, tzinfo=TZ)
+                if parsed > now + timedelta(days=1):
+                    parsed = parsed.replace(year=now.year - 1)
             elif fmt == "%H:%M":
-                now = datetime.now(TZ)
                 parsed = parsed.replace(year=now.year, month=now.month, day=now.day, tzinfo=TZ)
             elif parsed.tzinfo is None:
                 parsed = parsed.replace(tzinfo=TZ)
@@ -422,13 +432,18 @@ def fetch_search_rows(
                           const candidate = (container.innerText || '').trim();
                           if (
                             candidate.includes(title) &&
-                            (/\\b\\d{1,2}:\\d{2}\\b/.test(candidate) || candidate.length > 180)
+                            (
+                              /(?:(?:今天|昨天|前天)\s+)?(?:\\d{1,2}-\\d{1,2}\s+)?\\d{1,2}:\\d{2}/.test(candidate) ||
+                              candidate.length > 180
+                            )
                           ) {
                             break;
                           }
                         }
                         const text = (container.innerText || '').trim();
-                        const timeMatch = text.match(/\\b\\d{1,2}:\\d{2}\\b/);
+                        const timeMatch = text.match(
+                          /(?:(?:今天|昨天|前天)\s+)?(?:\\d{1,2}-\\d{1,2}\\s+)?\\d{1,2}:\\d{2}/
+                        );
                         const numeric = Array.from(
                           container.querySelectorAll('a, span')
                         )
@@ -829,6 +844,105 @@ def top_items(
     return result
 
 
+def load_garbage_state(state_file: Path) -> dict:
+    if not state_file.exists():
+        return {"urls": {}}
+    try:
+        state = json.loads(state_file.read_text(encoding="utf-8"))
+    except (OSError, json.JSONDecodeError):
+        return {"urls": {}}
+    if not isinstance(state, dict) or not isinstance(state.get("urls"), dict):
+        return {"urls": {}}
+    return state
+
+
+def save_garbage_state(state_file: Path, state: dict) -> None:
+    state_file.parent.mkdir(parents=True, exist_ok=True)
+    state_file.write_text(
+        json.dumps(state, ensure_ascii=False, indent=2),
+        encoding="utf-8",
+    )
+
+
+def item_age_hours(item: Item, now: datetime) -> float | None:
+    parsed = parse_datetime(item.published_at)
+    if not parsed:
+        return None
+    return max(0.0, (now - parsed).total_seconds() / 3600)
+
+
+def select_garbage_items(
+    items: Iterable[Item],
+    state_file: Path,
+    now: datetime,
+    count: int = 3,
+) -> list[Item]:
+    state = load_garbage_state(state_file)
+    selected_by_url = state["urls"]
+    today = now.date().isoformat()
+    cutoff_date = (now.date() - timedelta(days=14)).isoformat()
+
+    cleaned: dict[str, dict] = {}
+    for url, value in selected_by_url.items():
+        if not isinstance(value, dict):
+            continue
+        last_date = str(value.get("last_selected_date", ""))
+        if last_date >= cutoff_date:
+            cleaned[url] = value
+    selected_by_url = cleaned
+
+    unseen: list[Item] = []
+    for item in dedupe(items):
+        url = item.url.split("#", 1)[0]
+        record = selected_by_url.get(url, {})
+        last_date = str(record.get("last_selected_date", ""))
+        if last_date and last_date != today and last_date >= cutoff_date:
+            continue
+        unseen.append(item)
+
+    def pick(window_hours: int | None, remaining: int) -> list[Item]:
+        candidates = []
+        used_urls = {item.url.split("#", 1)[0] for item in result}
+        for item in unseen:
+            if item.url.split("#", 1)[0] in used_urls:
+                continue
+            age = item_age_hours(item, now)
+            if window_hours is not None and (age is None or age > window_hours):
+                continue
+            candidates.append(item)
+        picked = top_items(
+            candidates,
+            count=remaining,
+            scorer=score_article,
+        )
+        if window_hours is None:
+            for item in picked:
+                age = item_age_hours(item, now)
+                if age is None:
+                    item.reasons.append("日期未知，按往期候选处理")
+                elif age > 168:
+                    item.reasons.append("超过7天，按往期候选处理")
+        return picked
+
+    result: list[Item] = []
+    for window in (72, 168, None):
+        if len(result) >= count:
+            break
+        result.extend(pick(window, count - len(result)))
+
+    for item in result:
+        url = item.url.split("#", 1)[0]
+        record = selected_by_url.get(url, {})
+        record["last_selected_date"] = today
+        record.setdefault("first_seen_date", today)
+        selected_by_url[url] = record
+
+    state["urls"] = selected_by_url
+    state["updated_at"] = now.isoformat()
+    save_garbage_state(state_file, state)
+    return result
+
+
 def editor_note(item: Item) -> str:
     if item.kind == "deal":
         if item.price_text:
@@ -976,6 +1090,7 @@ def build_digest(
     json_output: Path,
     skip_browser: bool,
     public_url: str,
+    state_file: Path,
 ) -> None:
     collector = Collector()
     generated_at = datetime.now(TZ)
@@ -1097,10 +1212,11 @@ def build_digest(
                 ["垃圾佬", "捡垃圾", "洋垃圾", "E5", "X99", "矿渣"],
             )
         ]
-    garbage_items = top_items(
+    garbage_items = select_garbage_items(
         garbage_pool,
+        state_file,
+        generated_at,
         count=3,
-        scorer=score_article,
     )
 
     ai_items = top_items(ai_items, count=3, keywords=AI_KEYWORDS, scorer=score_article) or ai_items[:3]
@@ -1208,12 +1324,18 @@ def main() -> int:
         default="https://doane2002cn.github.io/smzdm-wenzhang-rss",
         help="GitHub Pages 公共地址",
     )
+    parser.add_argument(
+        "--state-file",
+        default="state/garbage_selection_state.json",
+        help="垃圾佬 URL 跨天去重状态文件",
+    )
     args = parser.parse_args()
     build_digest(
         Path(args.output),
         Path(args.json_output),
         skip_browser=args.skip_browser,
         public_url=args.public_url,
+        state_file=Path(args.state_file),
     )
     return 0
 

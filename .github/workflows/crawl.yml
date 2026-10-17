@@ -62,7 +62,8 @@ jobs:
           docs/daily_digest.json \
           docs/daily_digest.xml \
           docs/community_daily_rank.md \
-          docs/community_daily_rank.json
+          docs/community_daily_rank.json \
+          state/garbage_selection_state.json
         if git diff --staged --quiet; then
           echo "内容没有变化，跳过提交"
         else
