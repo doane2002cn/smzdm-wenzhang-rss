@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-10-17T14:12:55.047656+08:00",
+  "generated_at": "2026-10-17T17:45:01.101313+08:00",
   "scheduled_push_time": "11:00 Asia/Shanghai",
   "polling": "hourly",
   "rss_url": "https://doane2002cn.github.io/smzdm-wenzhang-rss/daily_digest.xml",
@@ -8,11 +8,42 @@
       {
         "kind": "article",
         "source": "搜索:AI应用探索",
-        "title": "ChatGPT操作Chrome浏览器保姆级教程：读网页比价发消息一键搞定",
-        "url": "https://post.smzdm.com/p/a26x09oq/",
-        "published_at": "13:58",
+        "title": "别盲目卷代码！Anthropic报告揭示的AI时代职场避坑指南",
+        "url": "https://post.smzdm.com/p/arzrqxnx/",
+        "published_at": "16:02",
         "category": "",
-        "description": "ChatGPT操作Chrome浏览器保姆级教程：读网页比价发消息一键搞定 热榜选题AI新鲜事 北京时间10月16日凌晨，OpenAI官宣ChatGPT重大升级，计算机使用能力全面进入Chrome，浏览器里的标签页从此能被ChatGPT直接利用。 能力分界很清晰：Chat模式负责跨标签页收集信息，Work模式在授权后可以控制Chrome标签页完成任务，比如发送消息、填写表单或下载文件。 把网页正文复制粘贴进对话框的体力活，现在可以整段交给AI自己完成。36氪小红书知乎第一步：先分清，Chat 0 0 0 13:58 张大妈",
+        "description": "别盲目卷代码！Anthropic报告揭示的AI时代职场避坑指南 AI新鲜事热榜选题 10 月 16 日，Anthropic 发布了一份内部 AI 使用报告：到 2026 年 8 月，员工部署的交互式 AI 智能体工作时长已达人类员工的 6 倍，早在 3 月，全公司智能体总工时首次超过人工工时。 这份报告被当作职场警示传播，是因为它披露了一个反直觉的事实：最先被智能体接管的，恰恰是“卷代码”卷得最凶的执行层。新浪科技执行层的效率是量级式的：采用编码智能体后工程师人均代码提交量达到 0 0 0 16:02 张大妈",
+        "price_text": "",
+        "price_value": null,
+        "heat": {
+          "score": 0,
+          "comments": 0
+        },
+        "tags": [
+          "AI应用探索"
+        ],
+        "editor_note": "",
+        "score": 68.2,
+        "score_breakdown": {
+          "时效性": 100.0,
+          "互动热度": 30.0,
+          "主题相关": 77.0,
+          "内容深度": 75.0
+        },
+        "reasons": [
+          "标题呈现实测、对比或攻略属性",
+          "来自主题搜索结果"
+        ],
+        "rank": 0
+      },
+      {
+        "kind": "article",
+        "source": "搜索:AI应用探索",
+        "title": "用禾赛AI空间相机一键复刻房间，数字孪生创作指南",
+        "url": "https://post.smzdm.com/p/agg55mg6/",
+        "published_at": "17:23",
+        "category": "",
+        "description": "用禾赛AI空间相机一键复刻房间，数字孪生创作指南 AI新鲜事数码热榜选题生活有一套·银发季 10月14日，禾赛科技发布三维世界数据引擎Kosmo，由AI空间相机Kosmo One与云平台Kosmo World两部分组成：前者负责采集真实房间，后者把扫描结果重建为可自由漫游、可换角度观看的三维场景。对创作者而言，这意味着“复刻一个房间”从建模任务变成了采集与重建任务：100平方米的普通室内约15分钟即可扫完。禾赛联合创始人兼CTO向少卿在发布会上给出的参照是，一个约100平方米的场景，传统 0 0 0 17:23 张大妈",
         "price_text": "",
         "price_value": null,
         "heat": {
@@ -39,42 +70,11 @@
       {
         "kind": "article",
         "source": "搜索:AI应用探索",
-        "title": "千问Go开始替人吵架：对完70元理赔、52元价保两个真数、灰度实测的\"没那么智能\"和那笔600元退票损失诉讼——\"AI替你维权\"这笔账，我拆成三类活",
-        "url": "https://post.smzdm.com/p/a3mx0zz5/",
-        "published_at": "12:40",
+        "title": "RTX Spark开售：AI创作先变，PC游戏后动",
+        "url": "https://post.smzdm.com/p/aomvvkp7/",
+        "published_at": "17:40",
         "category": "",
-        "description": "千问Go开始替人吵架：对完70元理赔、52元价保两个真数、灰度实测的\"没那么智能\"和那笔600元退票损失诉讼——\"AI替你维权\"这笔账，我拆成三类活 AI新鲜事数码 千问Go开始替人吵架：对完70元理赔、52元价保两个真数、灰度实测的\"没那么智能\"和那笔600元退票损失诉讼——\"AI替你维权\"这笔账，我拆成三类活这周开始，一部分千问App用户的消息列表里多了一种新通知：不是回答问题，而是\"替你吵完架了，结果如下\"。10月13日，千问官宣Personal Agent「千问Go!」，主打的就一件事——把个人事务外包给AI：沟通航班延误赔偿、申请淘宝价保退款、给汽车 0 0 0 12:40 张大妈",
-        "price_text": "",
-        "price_value": null,
-        "heat": {
-          "score": 0,
-          "comments": 0
-        },
-        "tags": [
-          "AI应用探索"
-        ],
-        "editor_note": "",
-        "score": 66.2,
-        "score_breakdown": {
-          "时效性": 100.0,
-          "互动热度": 30.0,
-          "主题相关": 77.0,
-          "内容深度": 65.0
-        },
-        "reasons": [
-          "标题呈现实测、对比或攻略属性",
-          "来自主题搜索结果"
-        ],
-        "rank": 0
-      },
-      {
-        "kind": "article",
-        "source": "搜索:AI应用探索",
-        "title": "ChatGPT直连Chrome浏览器：AI代理时代会终结传统网页浏览吗？",
-        "url": "https://post.smzdm.com/p/ak8lkgme/",
-        "published_at": "13:59",
-        "category": "",
-        "description": "ChatGPT直连Chrome浏览器：AI代理时代会终结传统网页浏览吗？ 热榜选题AI新鲜事 ChatGPT真的把手伸进Chrome了。10月16日，OpenAI向ChatGPT的Chrome扩展推送重大升级，把此前主要绑定在自家浏览器上的计算机使用能力，带给了每一位Chrome用户。 Chat模式能读取用户已在Chrome中打开的网页、跨标签页收集信息，Work模式则在授权后直接动手操作页面：发消息、填表单、下载文件，连堆成山的标签页都能归类整理。 但\"AI代理时代终结传统网页浏览\"这个 0 0 0 13:59 张大妈",
+        "description": "RTX Spark开售：AI创作先变，PC游戏后动 AI新鲜事数码啥本值得买值得你新 10月16日晚，首批搭载英伟达RTX Spark超级芯片的Windows笔记本正式开售，华硕、戴尔、联想、微软和微星等厂商的机型陆续推出。这颗3nm超级芯片把最高20核Grace CPU、最高6144核Blackwell GPU和128GB统一内存集成在同一颗芯片上，CPU与GPU互连带宽600GB/s，FP4 AI算力达1 Petaflop，支持本地运行超1200亿参数的大模型。开售首周的真机与 0 0 0 17:40 张大妈",
         "price_text": "",
         "price_value": null,
         "heat": {
@@ -102,25 +102,25 @@
       {
         "kind": "article",
         "source": "搜索:软件应用",
-        "title": "GEO诊断工具哪个值得买：免费额度与付费档位逐款算账",
-        "url": "https://post.smzdm.com/p/al38lwxg/",
-        "published_at": "14:09",
+        "title": "告别“读过就忘”｜AI读书工具Simin，帮你真正读透一本书",
+        "url": "https://post.smzdm.com/p/a6zp0nqe/",
+        "published_at": "15:43",
         "category": "",
-        "description": "GEO诊断工具哪个值得买：免费额度与付费档位逐款算账 数码 买东西讲究一个明明白白。这篇把主流GEO诊断工具的免费额度和付费档位摆到桌面上，逐款算账，看完再决定掏不掏钱。先说背景：AI搜索普及后，\"品牌在AI回答里排第几\"从玄学变成了可量化的指标，工具市场也跟着热闹起来，价格从免费到每月上百美元都有，差距主要不在功能数量，在计费粒度和场景匹配。免费档：能做的事比想象中多HubSpot AEO Grader：完全免费，不用注册，对ChatGPT、Gemini 0 0 0 14:09 丝白",
+        "description": "告别“读过就忘”｜AI读书工具Simin，帮你真正读透一本书 数码AI新鲜事 导语：不知道你有没有这种困扰，书读完合上，脑子里空空如也。谈起内容只能够说出一句“我读过了”，但真正需要输出观点、拿来解决问题的时候，什么都想不起来。最近发现了一个很有特点的的读书网站Simin，觉得还不错，推荐一下。✍️ 痛点：大部分阅读，都只是“假读过”很多时候不是我们没时间读书，而是读完之后留存极低。 厚厚的经典著作啃完，道理仿佛都看懂，等到需要调用书中知识运用的时候，脑袋一片空白。哪怕一个 1 3 1 15:43 滴答猫",
         "price_text": "",
         "price_value": null,
         "heat": {
-          "score": 0,
-          "comments": 0
+          "score": 1,
+          "comments": 1
         },
         "tags": [
           "软件应用"
         ],
         "editor_note": "",
-        "score": 59.2,
+        "score": 62.8,
         "score_breakdown": {
-          "时效性": 100.0,
-          "互动热度": 30.0,
+          "时效性": 90.0,
+          "互动热度": 50.0,
           "主题相关": 65.0,
           "内容深度": 45.0
         },
@@ -149,9 +149,9 @@
           "垃圾佬"
         ],
         "editor_note": "",
-        "score": 51.8,
+        "score": 46.8,
         "score_breakdown": {
-          "时效性": 70.0,
+          "时效性": 50.0,
           "互动热度": 30.0,
           "主题相关": 65.0,
           "内容深度": 45.0
@@ -168,7 +168,7 @@
         "url": "https://post.smzdm.com/p/ak8lx494/",
         "published_at": "10-15 18:27",
         "category": "",
-        "description": "全新全铝跌到200元，80元二手铝坨坨开始尴尬：垃圾佬双11捡键盘前，先把三本账对完 数码配件节数码外设党选购双十一 今年垃圾佬的战场，从内存条挪到了键盘上。9月中旬，一条UP主在地摊上花一杯水的钱拎走一把磁轴键盘、上机测试的视频跑了81万多次播放。评论区里最扎眼的不是捡漏心得，而是一句自嘲：“哥你可不可以把视频删了，我100买的”。另一条10月5日的《80元跟买群友二手铝坨坨镂空磁轴键盘能捡漏吗》，4.5万播放、780赞、184条评论，几乎全是\"群在哪、还拼不拼\"。哔哩哔哩哔哩哔哩捡键盘突然成了垃圾佬的显学，原 0 1 0 10-15 18:27 张大妈",
+        "description": "全新全铝跌到200元，80元二手铝坨坨开始尴尬：垃圾佬双11捡键盘前，先把三本账对完 数码配件节数码选购双十一外设党 今年垃圾佬的战场，从内存条挪到了键盘上。9月中旬，一条UP主在地摊上花一杯水的钱拎走一把磁轴键盘、上机测试的视频跑了81万多次播放。评论区里最扎眼的不是捡漏心得，而是一句自嘲：“哥你可不可以把视频删了，我100买的”。另一条10月5日的《80元跟买群友二手铝坨坨镂空磁轴键盘能捡漏吗》，4.5万播放、780赞、184条评论，几乎全是\"群在哪、还拼不拼\"。哔哩哔哩哔哩哔哩捡键盘突然成了垃圾佬的显学，原 0 1 0 10-15 18:27 张大妈",
         "price_text": "",
         "price_value": null,
         "heat": {
@@ -225,14 +225,14 @@
     "food_deals": [
       {
         "kind": "deal",
-        "source": "搜索:蔬菜",
-        "title": "京鲜生 山东荷兰水果黄瓜 净4.5斤 单果70g+ 健康轻食早餐蔬菜 源头直发",
-        "url": "https://www.smzdm.com/p/184146260/",
-        "published_at": "14:07",
-        "category": "蔬菜",
-        "description": "京鲜生 山东荷兰水果黄瓜 净4.5斤 单果70g+ 健康轻食早餐蔬菜 源头直发 14.8元 京东自营93天新低每日白菜 京东此款目前活动售价14.8元，下单1件，实付低至14.8元。 0 0 0 0 去购买> 14:07 京东",
-        "price_text": "14.8 元",
-        "price_value": 14.8,
+        "source": "搜索:禽蛋肉类",
+        "title": "祁连牧歌 原切眼肉肥牛卷 500g",
+        "url": "https://www.smzdm.com/p/184153222/",
+        "published_at": "16:05",
+        "category": "禽蛋肉类",
+        "description": "祁连牧歌 原切眼肉肥牛卷 500g 65.36元 京东自营33天新低6篇相关文章拼单 祁连牧歌筋道肥牛卷产自甘肃省张掖市，张掖地处北纬38\"黄金农牧区。300天谷词，玉米+青贮玉米全株饲的美式育肥方式， 令祁连牧歌出品的牛肉肉质香甜、鲜嫩多汁，出品的牛仔骨、牛柳、战斧牛排，眼肉、西冷各项指标均远远高于国内，嫩度。风味，滋味别具一格，成为中国国家烹饪队的指定牛肉食材。京东此款目前活动售价68.8元，参与2件9.5折优惠活动，下单2件，实付低至130.72元。 0 0 0 0 去购买> 16:05 京东",
+        "price_text": "65.36 元",
+        "price_value": 65.36,
         "heat": {},
         "tags": [],
         "editor_note": "",
@@ -255,31 +255,31 @@
       },
       {
         "kind": "deal",
-        "source": "搜索:禽蛋肉类",
-        "title": "移动端、88VIP：黄天鹅 可生食鲜鸡蛋",
-        "url": "https://www.smzdm.com/p/184147365/",
-        "published_at": "14:13",
-        "category": "禽蛋肉类",
-        "description": "移动端、88VIP：黄天鹅 可生食鲜鸡蛋 57.96元（淘金币可抵3.46元起） 比上次发布低12%22篇相关文章天猫超市鸡蛋 黄天鹅的鸡蛋蛋黄色泽光亮，呈现出红橙色。腥味小，味道略甘甜。手工甄选当日产，新鲜直送，保质期30天，均重50g+，高品质生活之选。比利时国际风味与品质评选大赛获得金奖，饲料中的酵母菌可明显增加蛋黄膜厚度并防止沙门氏菌进入是达到可生食的关键。可生食级鲜鸡蛋 无抗生素无激素 精美包装 顺丰直达 破损必赔！天猫超市该商品正在促销，领取88VIP 95折优惠券，最终到手价57.96元/件，喜欢可入。使用淘金币再省3.46元起，根据账号情况可能抵更多，建议亲测。 0 0 0 0 去购买> 14:13 天猫超市 扫码购",
-        "price_text": "57.96 元",
-        "price_value": 57.96,
+        "source": "搜索:蔬菜",
+        "title": "京鲜生 山东荷兰水果黄瓜 净4.5斤 单果70g+ 健康轻食早餐蔬菜 源头直发",
+        "url": "https://www.smzdm.com/p/184146260/",
+        "published_at": "14:07",
+        "category": "蔬菜",
+        "description": "京鲜生 山东荷兰水果黄瓜 净4.5斤 单果70g+ 健康轻食早餐蔬菜 源头直发 14.8元 京东自营93天新低每日白菜 京东此款目前活动售价14.8元，下单1件，实付低至14.8元。 0 0 0 0 去购买> 14:07 京东",
+        "price_text": "14.8 元",
+        "price_value": 14.8,
         "heat": {},
         "tags": [],
         "editor_note": "",
-        "score": 79.8,
+        "score": 90.3,
         "score_breakdown": {
-          "价格优势": 81.0,
-          "历史低价": 70.0,
+          "价格优势": 98.0,
+          "历史低价": 100.0,
           "来源可信": 95.0,
-          "更新时效": 100.0,
+          "更新时效": 90.0,
           "互动热度": 40.0,
           "编辑偏好": 85.0
         },
         "reasons": [
-          "比上次发布低 12%",
-          "包含会员权益或会员价",
+          "出现历史低价或新低信号",
           "来源可信度较高",
-          "生鲜类优先"
+          "生鲜类优先",
+          "缺少互动数据，热度按中性处理"
         ],
         "rank": 0
       },
@@ -290,18 +290,18 @@
         "url": "https://www.smzdm.com/p/184137073/",
         "published_at": "13:22",
         "category": "蔬菜",
-        "description": "云南新鲜现挖小芋头毛芋头当季蔬菜芋艿软糯香甜早餐 牛奶小芋头2斤含箱 0.98元 食品白菜今日京东生鲜有好货火锅食材有好价京东火锅食材有好价 京东此款目前活动售价5.98元，下单1件，实付低至0.98元。 0 0 0 1 去购买> 13:22 京东",
+        "description": "云南新鲜现挖小芋头毛芋头当季蔬菜芋艿软糯香甜早餐 牛奶小芋头2斤含箱 0.98元 食品白菜今日京东生鲜有好货火锅食材有好价京东火锅食材有好价 京东此款目前活动售价5.98元，下单1件，实付低至0.98元。 0 1 1 1 去购买> 13:22 京东",
         "price_text": "0.98 元",
         "price_value": 0.98,
         "heat": {},
         "tags": [],
         "editor_note": "",
-        "score": 56.2,
+        "score": 54.7,
         "score_breakdown": {
           "价格优势": 62.0,
           "历史低价": 0.0,
           "来源可信": 75.0,
-          "更新时效": 100.0,
+          "更新时效": 90.0,
           "互动热度": 40.0,
           "编辑偏好": 85.0
         },
@@ -317,13 +317,13 @@
       {
         "kind": "deal",
         "source": "搜索:白酒",
-        "title": "鸭溪窖 55度 浓香型白酒 光瓶装",
-        "url": "https://www.smzdm.com/p/184147551/",
-        "published_at": "14:14",
+        "title": "泸州老窖 国窖1573 2021年 浓香型 52度 500ml 单瓶装",
+        "url": "https://www.smzdm.com/p/184154198/",
+        "published_at": "16:42",
         "category": "白酒",
-        "description": "综合排序| 最新排序 收起筛选 分类 食品生鲜 更多 商城 京东 天猫精选 天猫超市 抖音商城 拼多多 唯品会 京东全球购 苏宁易购 天猫国际官方直营 淘宝精选 淘宝直播 美团闪购 小米有品 天猫国际 酒云网 微信小程序 更多 品牌 WULIANGYE/五粮液 MOUTAI/茅台 LUZHOULAOJIAO/泸州老窖 LANGJIU/郎酒 汾酒 西凤酒 XIJIU/习酒 古井贡酒 酒鬼 舍得 YANGHE/洋河 GUOTAI/国台 剑南春 五粮浓香 今世缘 沱牌 JINSHA/金沙 KWEICHOW ZHENJIU/珍酒 红星 XUFU/叙府 值法 历史低价 手慢无 绝对值 送礼佳品 必看促销 白菜党 价格 - 确定 清除 (不区分",
-        "price_text": "2190 元",
-        "price_value": 2190.0,
+        "description": "泸州老窖 国窖1573 2021年 浓香型 52度 500ml 单瓶装 854.05元 京东自营140天新低白酒优惠好货品类榜商品 京东此款目前活动售价899元，参与满1件打9.5折优惠活动，下单1件，实付低至854.05元。 0 0 0 0 去购买> 16:42 京东",
+        "price_text": "854.05 元",
+        "price_value": 854.05,
         "heat": {},
         "tags": [],
         "editor_note": "",
@@ -343,63 +343,34 @@
           "缺少互动数据，热度按中性处理"
         ],
         "rank": 0
-      },
-      {
-        "kind": "deal",
-        "source": "搜索:啤酒",
-        "title": "88VIP：天湖啤酒 施泰克11.5度精酿白啤 500ml*24听",
-        "url": "https://www.smzdm.com/p/184145489/",
-        "published_at": "14:13",
-        "category": "啤酒",
-        "description": "88VIP：天湖啤酒 施泰克11.5度精酿白啤 500ml*24听 50.85元（需用券） 比上次发布低46%18篇相关文章天猫超市88VIP 主商品下拉详情页进入“超补”领取39-6吴阿姨补贴（截图使用8元，已剔除2元，该模块加购1件（立减20，补贴2.9元，5元券，淘礼金3.5元返3元猫超补贴），直接加购凑单品1件，商品下方领取满99元减20元优惠券，88VIP会员 95折，实付低至50.85元（截图未使用淘礼金，金币抵扣2.57元，做到48.31元）。 0 0 0 0 去购买> 14:13 天猫超市",
-        "price_text": "50.85 元",
-        "price_value": 50.85,
-        "heat": {},
-        "tags": [],
-        "editor_note": "",
-        "score": 77.4,
-        "score_breakdown": {
-          "价格优势": 74,
-          "历史低价": 70.0,
-          "来源可信": 95.0,
-          "更新时效": 100.0,
-          "互动热度": 40.0,
-          "编辑偏好": 85.0
-        },
-        "reasons": [
-          "比上次发布低 46%",
-          "需要领券确认最终价",
-          "需要凑单或多件购买",
-          "包含会员权益或会员价"
-        ],
-        "rank": 0
       }
     ],
     "computer_deals": [
       {
         "kind": "deal",
         "source": "搜索:电脑配件",
-        "title": "EIMIO E17BW 2.5K 17.3英寸便携式显示器",
-        "url": "https://www.smzdm.com/p/184146420/",
-        "published_at": "14:10",
+        "title": "AOC AG275UXM 27英寸 IPS FreeSync 显示器（3840×2160、165Hz、100%sRGB、HDR1000）",
+        "url": "https://www.smzdm.com/p/184158005/",
+        "published_at": "17:41",
         "category": "电脑配件",
-        "description": "EIMIO E17BW 2.5K 17.3英寸便携式显示器 1135.8元 京东自营比上次发布低9%显示器优惠好货 京东该商品参加1件9折的促销活动，当前到手价1135.80元，降价前售价为1262.00元，本次降幅10%，低于上次爆料价1249.00元。喜欢的值友们不要错过~ 0 0 0 0 去购买> 14:10 京东",
-        "price_text": "1135.8 元",
-        "price_value": 1135.8,
+        "description": "AOC AG275UXM 27英寸 IPS FreeSync 显示器（3840×2160、165Hz、100%sRGB、HDR1000） 1480.83元（需用券） 123天新低51篇相关文章百亿补贴显示器优惠好货 天猫精选此款目前活动售价2399元，下单领取1件9折，满1500减150优惠券，参与补贴5%起减94.95元优惠活动，下单1件，实付低至1480.83元。 0 0 0 0 去购买> 17:41 天猫精选",
+        "price_text": "1480.83 元",
+        "price_value": 1480.83,
         "heat": {},
         "tags": [],
         "editor_note": "",
-        "score": 79.8,
+        "score": 88.2,
         "score_breakdown": {
-          "价格优势": 83.0,
-          "历史低价": 70.0,
+          "价格优势": 90.0,
+          "历史低价": 100.0,
           "来源可信": 95.0,
           "更新时效": 100.0,
           "互动热度": 40.0,
           "编辑偏好": 70.0
         },
         "reasons": [
-          "比上次发布低 9%",
+          "出现历史低价或新低信号",
+          "需要领券确认最终价",
           "来源可信度较高",
           "缺少互动数据，热度按中性处理"
         ],
@@ -408,42 +379,13 @@
       {
         "kind": "deal",
         "source": "搜索:电脑配件",
-        "title": "毕亚兹 85W 苹果笔记本充电器 电源适配器线头 单头",
-        "url": "https://www.smzdm.com/p/184146407/",
-        "published_at": "14:13",
+        "title": "西部数据 黑盘 SN850X NVMe M.2 固态硬盘 1TB（PCI-E4.0）",
+        "url": "https://www.smzdm.com/p/184157561/",
+        "published_at": "17:31",
         "category": "电脑配件",
-        "description": "综合排序| 最新排序 收起筛选 分类 电脑数码 商城 京东 抖音商城 天猫精选 拼多多 京东全球购 天猫超市 天猫国际官方直营 亚马逊中国 苏宁易购 美国亚马逊 淘宝精选 顺电网上商城 快手电商 唯品会 淘宝直播 woot Walmart 三星美国官网 B&H 小米有品 品牌 AMD MSI/微星 intel/英特尔 ASUS/华硕 GIGABYTE/技嘉 HKC/惠科 AOC/冠捷 COLORFUL/七彩虹 NVIDIA/英伟达 TITAN ARMY/泰坦军团 SAMSUNG/三星 KTC MAXSUN/铭瑄 Lenovo/联想 Xiaomi/小米 aigo/爱国者 SANC/盛色 Thermalright/利民 Great Wa",
-        "price_text": "70 元",
-        "price_value": 70.0,
-        "heat": {},
-        "tags": [],
-        "editor_note": "",
-        "score": 58.5,
-        "score_breakdown": {
-          "价格优势": 62.0,
-          "历史低价": 0.0,
-          "来源可信": 95.0,
-          "更新时效": 100.0,
-          "互动热度": 40.0,
-          "编辑偏好": 70.0
-        },
-        "reasons": [
-          "来源可信度较高",
-          "缺少互动数据，热度按中性处理",
-          "首轮暂无完整价格历史"
-        ],
-        "rank": 0
-      },
-      {
-        "kind": "deal",
-        "source": "搜索:电脑配件",
-        "title": "忆捷 S205 读速高达500MB/s 固态硬盘 120-128GB",
-        "url": "https://www.smzdm.com/p/184146342/",
-        "published_at": "14:13",
-        "category": "电脑配件",
-        "description": "综合排序| 最新排序 收起筛选 分类 电脑数码 商城 京东 抖音商城 天猫精选 拼多多 京东全球购 天猫超市 天猫国际官方直营 亚马逊中国 苏宁易购 美国亚马逊 淘宝精选 顺电网上商城 快手电商 唯品会 淘宝直播 woot Walmart 三星美国官网 B&H 小米有品 品牌 AMD MSI/微星 intel/英特尔 ASUS/华硕 GIGABYTE/技嘉 HKC/惠科 AOC/冠捷 COLORFUL/七彩虹 NVIDIA/英伟达 TITAN ARMY/泰坦军团 SAMSUNG/三星 KTC MAXSUN/铭瑄 Lenovo/联想 Xiaomi/小米 aigo/爱国者 SANC/盛色 Thermalright/利民 Great Wa",
-        "price_text": "70 元",
-        "price_value": 70.0,
+        "description": "西部数据 黑盘 SN850X NVMe M.2 固态硬盘 1TB（PCI-E4.0） 1949元 价格低于618固态硬盘天猫超市固态硬盘优惠好货新 西部数据（Western Digital）这款NVMe M.2 固态硬盘，搭载Pcle Gen4技术，高效的传输速率，提供流畅的游戏体验。顺序读取速度可达7300MB/秒，能快速读取数据。采用M.2 2280规格纤薄外观，整体轻巧紧凑。支持WD-BLACK™仪表盘2.0对SSD进行实时监测，拥有游戏模式2.0优化整体性能，保持在游戏模式中全程高速运转。天猫超市此款目前活动售价2699元，参与立减400元，立减350元优惠活动，下单1件，实付低至1949元。 0 0 0 0 去购买> 17",
+        "price_text": "1949 元",
+        "price_value": 1949.0,
         "heat": {},
         "tags": [],
         "editor_note": "",
@@ -468,28 +410,28 @@
       {
         "kind": "deal",
         "source": "电脑配件精选",
-        "title": "小米 Redmi X27GQ 2025款节能版 2K 165Hz IPS显示器 低于常卖价 电脑配件热度Top10 百亿补贴 ¥ 530. 68 需用券 ¥999 天猫精选 3 0",
-        "url": "https://www.smzdm.com/p/184109626/",
+        "title": "LG 31.5英寸4k显示器 电脑显示屏 HDR400 TypeC 65w 内置音箱 webOS系统 游戏显示器 32G810SA 白 365天新低 ¥ 3148. 04 需用券 京东 0 100%",
+        "url": "https://www.smzdm.com/p/184153685/",
         "published_at": "",
         "category": "电脑配件精选",
-        "description": "小米 Redmi X27GQ 2025款节能版 2K 165Hz IPS显示器 低于常卖价 电脑配件热度Top10 百亿补贴 ¥ 530. 68 需用券 ¥999 天猫精选 3 0",
-        "price_text": "530 元",
-        "price_value": 530.0,
+        "description": "LG 31.5英寸4k显示器 电脑显示屏 HDR400 TypeC 65w 内置音箱 webOS系统 游戏显示器 32G810SA 白 365天新低 ¥ 3148. 04 需用券 京东 0 100%",
+        "price_text": "3148 元",
+        "price_value": 3148.0,
         "heat": {},
         "tags": [],
         "editor_note": "",
-        "score": 48.1,
+        "score": 77.8,
         "score_breakdown": {
-          "价格优势": 54.0,
-          "历史低价": 0.0,
-          "来源可信": 95.0,
+          "价格优势": 90.0,
+          "历史低价": 100.0,
+          "来源可信": 75.0,
           "更新时效": 50.0,
           "互动热度": 40.0,
           "编辑偏好": 70.0
         },
         "reasons": [
+          "出现历史低价或新低信号",
           "需要领券确认最终价",
-          "来源可信度较高",
           "缺少发布时间，时效按中性处理",
           "缺少互动数据，热度按中性处理"
         ],
@@ -498,26 +440,27 @@
       {
         "kind": "deal",
         "source": "电脑配件精选",
-        "title": "光威 32GB(16GBX2) DDR5 6800 台式机内存条 龙武 马甲条 电脑配件热度Top18 ¥ 3119 京东 1 100%",
-        "url": "https://www.smzdm.com/p/184123777/",
+        "title": "AMD RYZEN 9800x3D散片+技嘉b850m战鹰 ¥ 2941 天猫精选 0 --",
+        "url": "https://www.smzdm.com/p/184154180/",
         "published_at": "",
         "category": "电脑配件精选",
-        "description": "光威 32GB(16GBX2) DDR5 6800 台式机内存条 龙武 马甲条 电脑配件热度Top18 ¥ 3119 京东 1 100%",
-        "price_text": "3119 元",
-        "price_value": 3119.0,
+        "description": "AMD RYZEN 9800x3D散片+技嘉b850m战鹰 ¥ 2941 天猫精选 0 --",
+        "price_text": "2941 元",
+        "price_value": 2941.0,
         "heat": {},
         "tags": [],
         "editor_note": "",
-        "score": 48.0,
+        "score": 51.0,
         "score_breakdown": {
           "价格优势": 62.0,
           "历史低价": 0.0,
-          "来源可信": 75.0,
+          "来源可信": 95.0,
           "更新时效": 50.0,
           "互动热度": 40.0,
           "编辑偏好": 70.0
         },
         "reasons": [
+          "来源可信度较高",
           "缺少发布时间，时效按中性处理",
           "缺少互动数据，热度按中性处理",
           "首轮暂无完整价格历史"
@@ -529,11 +472,11 @@
       {
         "kind": "article",
         "source": "社区日榜",
-        "title": "Intel大旗一挥！内存史上首次开倒车，DDR4全面归来",
-        "url": "https://post.smzdm.com/p/awwor33m/",
+        "title": "懂车帝被曝花钱“黑”尊界，事情越闹越大！",
+        "url": "https://post.smzdm.com/p/aqrqxee2/",
         "published_at": "",
         "category": "",
-        "description": "Intel大旗一挥！内存史上首次开倒车，DDR4全面归来 芯硬件 37",
+        "description": "懂车帝被曝花钱“黑”尊界，事情越闹越大！ 李东阳朋友圈 13",
         "price_text": "",
         "price_value": null,
         "heat": {},
@@ -560,11 +503,11 @@
       {
         "kind": "article",
         "source": "社区日榜",
-        "title": "水龙头天梯表，国产宝藏品牌推荐，大牌质量，1/10价格，最详细水龙头选购攻略",
-        "url": "https://post.smzdm.com/p/agg54pm3/",
+        "title": "100多的智能屏，RK3566 8寸触屏、4+128GB、RJ45网口、双USB！",
+        "url": "https://post.smzdm.com/p/apqmvxp7/",
         "published_at": "",
         "category": "",
-        "description": "水龙头天梯表，国产宝藏品牌推荐，大牌质量，1/10价格，最详细水龙头选购攻略 tang251 178",
+        "description": "100多的智能屏，RK3566 8寸触屏、4+128GB、RJ45网口、双USB！ 花儿6699 50",
         "price_text": "",
         "price_value": null,
         "heat": {},
@@ -573,16 +516,15 @@
           "排名:2"
         ],
         "editor_note": "",
-        "score": 89.8,
+        "score": 80.8,
         "score_breakdown": {
           "时效性": 50.0,
           "互动热度": 40.0,
-          "主题相关": 67.0,
-          "内容深度": 75.0,
+          "主题相关": 55.0,
+          "内容深度": 45.0,
           "日榜排名奖励": 33.5
         },
         "reasons": [
-          "标题呈现实测、对比或攻略属性",
           "暂无互动数据，热度按中性处理",
           "缺少发布时间，时效按中性处理",
           "社区日榜第 2 名"
@@ -592,11 +534,11 @@
       {
         "kind": "article",
         "source": "社区日榜",
-        "title": "不用装软件、远程进BIOS：RMQ1这块小圆盘，让iPad替电脑上班",
-        "url": "https://post.smzdm.com/p/awwozeo4/",
+        "title": "特斯拉飞行汽车：飞行只是噱头，技术非常有用",
+        "url": "https://post.smzdm.com/p/am9383zd/",
         "published_at": "",
         "category": "",
-        "description": "不用装软件、远程进BIOS：RMQ1这块小圆盘，让iPad替电脑上班 87",
+        "description": "特斯拉飞行汽车：飞行只是噱头，技术非常有用 管住我的手 7",
         "price_text": "",
         "price_value": null,
         "heat": {},
@@ -623,11 +565,11 @@
       {
         "kind": "article",
         "source": "社区日榜",
-        "title": "一辆没有自燃过！奥特能平台这么强，却要被上汽通用放弃了？",
-        "url": "https://post.smzdm.com/p/ak8lkmre/",
+        "title": "忘掉说明书吧！威联通QU605+QuONE，用起来和手机一样",
+        "url": "https://post.smzdm.com/p/aqrqmrmv/",
         "published_at": "",
         "category": "",
-        "description": "一辆没有自燃过！奥特能平台这么强，却要被上汽通用放弃了？ 老司机侃侃车 13",
+        "description": "忘掉说明书吧！威联通QU605+QuONE，用起来和手机一样 里海INFJ 117",
         "price_text": "",
         "price_value": null,
         "heat": {},
@@ -654,11 +596,11 @@
       {
         "kind": "article",
         "source": "社区日榜",
-        "title": "创作者的本地数据中心：双万兆的绿联DXP4800 GT，重塑素材库存储",
-        "url": "https://post.smzdm.com/p/ad7m6rwd/",
+        "title": "漫威重磅！这部顶流美剧，终于上线了",
+        "url": "https://post.smzdm.com/p/avgpwmdp/",
         "published_at": "",
         "category": "",
-        "description": "创作者的本地数据中心：双万兆的绿联DXP4800 GT，重塑素材库存储 Y_S都说名字长醒目 98",
+        "description": "漫威重磅！这部顶流美剧，终于上线了 来看美剧 42",
         "price_text": "",
         "price_value": null,
         "heat": {},
@@ -667,16 +609,15 @@
           "排名:5"
         ],
         "editor_note": "",
-        "score": 85.2,
+        "score": 76.2,
         "score_breakdown": {
           "时效性": 50.0,
           "互动热度": 40.0,
-          "主题相关": 67.0,
-          "内容深度": 75.0,
+          "主题相关": 55.0,
+          "内容深度": 45.0,
           "日榜排名奖励": 29.0
         },
         "reasons": [
-          "标题呈现实测、对比或攻略属性",
           "暂无互动数据，热度按中性处理",
           "缺少发布时间，时效按中性处理",
           "社区日榜第 5 名"
@@ -686,11 +627,11 @@
       {
         "kind": "article",
         "source": "社区日榜",
-        "title": "不是你撞的为什么要扶和刹车没问题为什么要升级？是一码事吗？",
-        "url": "https://post.smzdm.com/p/am938w34/",
+        "title": "长脑子的16种运动，坚持做，大脑真的会感谢你",
+        "url": "https://post.smzdm.com/talk/p/a03xq0kw/",
         "published_at": "",
         "category": "",
-        "description": "不是你撞的为什么要扶和刹车没问题为什么要升级？是一码事吗？ 老司机侃侃车 6",
+        "description": "长脑子的16种运动，坚持做，大脑真的会感谢你 林暖熠光 20",
         "price_text": "",
         "price_value": null,
         "heat": {},
@@ -699,16 +640,15 @@
           "排名:6"
         ],
         "editor_note": "",
-        "score": 83.8,
+        "score": 74.8,
         "score_breakdown": {
           "时效性": 50.0,
           "互动热度": 40.0,
-          "主题相关": 67.0,
-          "内容深度": 75.0,
+          "主题相关": 55.0,
+          "内容深度": 45.0,
           "日榜排名奖励": 27.5
         },
         "reasons": [
-          "标题呈现实测、对比或攻略属性",
           "暂无互动数据，热度按中性处理",
           "缺少发布时间，时效按中性处理",
           "社区日榜第 6 名"
@@ -718,11 +658,11 @@
       {
         "kind": "article",
         "source": "社区日榜",
-        "title": "英伟达RTX Spark笔记本首发实测，我实现了WorkBuddy额度自由",
-        "url": "https://post.smzdm.com/p/ad7m9wlk/",
+        "title": "有人烧80亿Token做了个网站，就为把你的城市缩小放上桌",
+        "url": "https://post.smzdm.com/p/a6zp0wee/",
         "published_at": "",
         "category": "",
-        "description": "英伟达RTX Spark笔记本首发实测，我实现了WorkBuddy额度自由 爱范儿ifanr 22",
+        "description": "有人烧80亿Token做了个网站，就为把你的城市缩小放上桌 40",
         "price_text": "",
         "price_value": null,
         "heat": {},
@@ -731,16 +671,15 @@
           "排名:7"
         ],
         "editor_note": "",
-        "score": 82.2,
+        "score": 73.2,
         "score_breakdown": {
           "时效性": 50.0,
           "互动热度": 40.0,
-          "主题相关": 67.0,
-          "内容深度": 75.0,
+          "主题相关": 55.0,
+          "内容深度": 45.0,
           "日榜排名奖励": 26.0
         },
         "reasons": [
-          "标题呈现实测、对比或攻略属性",
           "暂无互动数据，热度按中性处理",
           "缺少发布时间，时效按中性处理",
           "社区日榜第 7 名"
@@ -750,11 +689,11 @@
       {
         "kind": "article",
         "source": "社区日榜",
-        "title": "刹车断了、后轴掉了，“速成车”正在消耗海外市场信任",
-        "url": "https://post.smzdm.com/p/apqmxdk2/",
+        "title": "Intel大旗一挥！内存史上首次开倒车，DDR4全面归来",
+        "url": "https://post.smzdm.com/p/awwor33m/",
         "published_at": "",
         "category": "",
-        "description": "刹车断了、后轴掉了，“速成车”正在消耗海外市场信任 老哥帮你探探路 25",
+        "description": "Intel大旗一挥！内存史上首次开倒车，DDR4全面归来 芯硬件 42",
         "price_text": "",
         "price_value": null,
         "heat": {},
@@ -781,11 +720,11 @@
       {
         "kind": "article",
         "source": "社区日榜",
-        "title": "长脑子的16种运动，坚持做，大脑真的会感谢你",
-        "url": "https://post.smzdm.com/talk/p/a03xq0kw/",
+        "title": "英伟达RTX Spark笔记本首发实测，我实现了WorkBuddy额度自由",
+        "url": "https://post.smzdm.com/p/ad7m9wlk/",
         "published_at": "",
         "category": "",
-        "description": "长脑子的16种运动，坚持做，大脑真的会感谢你 林暖熠光 16",
+        "description": "英伟达RTX Spark笔记本首发实测，我实现了WorkBuddy额度自由 爱范儿ifanr 25",
         "price_text": "",
         "price_value": null,
         "heat": {},
@@ -794,15 +733,16 @@
           "排名:9"
         ],
         "editor_note": "",
-        "score": 70.2,
+        "score": 79.2,
         "score_breakdown": {
           "时效性": 50.0,
           "互动热度": 40.0,
-          "主题相关": 55.0,
-          "内容深度": 45.0,
+          "主题相关": 67.0,
+          "内容深度": 75.0,
           "日榜排名奖励": 23.0
         },
         "reasons": [
+          "标题呈现实测、对比或攻略属性",
           "暂无互动数据，热度按中性处理",
           "缺少发布时间，时效按中性处理",
           "社区日榜第 9 名"
@@ -812,11 +752,11 @@
       {
         "kind": "article",
         "source": "社区日榜",
-        "title": "特斯拉发布全新 Roadster 跑车！真的能飞",
-        "url": "https://post.smzdm.com/p/ak8lx929/",
+        "title": "买了Apple Watch只看时间？37个隐藏功能，感觉之前白买了",
+        "url": "https://post.smzdm.com/talk/p/a5rxorz8/",
         "published_at": "",
         "category": "",
-        "description": "特斯拉发布全新 Roadster 跑车！真的能飞 mediomo 10",
+        "description": "买了Apple Watch只看时间？37个隐藏功能，感觉之前白买了 锐评数码专家 10",
         "price_text": "",
         "price_value": null,
         "heat": {},
@@ -843,11 +783,11 @@
       {
         "kind": "article",
         "source": "社区日榜",
-        "title": "特斯拉飞行汽车：飞行只是噱头，技术非常有用",
-        "url": "https://post.smzdm.com/p/am9383zd/",
+        "title": "腾讯又来一王炸，开源版 WorkBuddy 太顶了",
+        "url": "https://post.smzdm.com/p/a4qx5m98/",
         "published_at": "",
         "category": "",
-        "description": "特斯拉飞行汽车：飞行只是噱头，技术非常有用 管住我的手 5",
+        "description": "腾讯又来一王炸，开源版 WorkBuddy 太顶了 cxuanAI 125",
         "price_text": "",
         "price_value": null,
         "heat": {},
@@ -874,11 +814,11 @@
       {
         "kind": "article",
         "source": "社区日榜",
-        "title": "腾讯又来一王炸，开源版 WorkBuddy 太顶了",
-        "url": "https://post.smzdm.com/p/a4qx5m98/",
+        "title": "一辆没有自燃过！奥特能平台这么强，却要被上汽通用放弃了？",
+        "url": "https://post.smzdm.com/p/ak8lkmre/",
         "published_at": "",
         "category": "",
-        "description": "腾讯又来一王炸，开源版 WorkBuddy 太顶了 cxuanAI 112",
+        "description": "一辆没有自燃过！奥特能平台这么强，却要被上汽通用放弃了？ 老司机侃侃车 14",
         "price_text": "",
         "price_value": null,
         "heat": {},
