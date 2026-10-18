@@ -19,3 +19,13 @@
 4. 工作流提交并推送 `main`，GitHub Pages 自动重建站点。
 
 完整配置见 [IFLOW.md](./IFLOW.md)。
+
+## Hermes 好价策略
+
+- GitHub 公开仓库只保留脱敏示例：`config/hermes_deal_profile.example.json`
+- Hermes 真实 profile：`/opt/data/scripts/state/smzdm_deal_profile.json`
+- 文章精选：每天 11:05 推送蓝色飞书卡片
+- 好价精选：每天 11:10 推送一张飞书卡片，最多 2 条
+- 默认关注：啤酒、起泡酒、智能门锁、3C 数码
+- 默认排除：白酒及其相关品牌
+- RSS 候选分类：`好价候选池`

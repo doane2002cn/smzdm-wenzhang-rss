@@ -1,0 +1,13 @@
+纯脚本任务(no_agent): 运行 smzdm_deal_alert.py。
+数据源：https://doane2002cn.github.io/smzdm-wenzhang-rss/daily_digest.xml
+每天 11:10 运行，只发送一张“今日精选好价”飞书 interactive card，不发送即时逐条提醒。
+读取 Hermes 本地 profile：/opt/data/scripts/state/smzdm_deal_profile.json。
+默认最多 2 条商品，每个分组最多 1 条；分组为啤酒、起泡酒、智能门锁、3C数码。
+排除白酒、酱香、浓香、清香、汾酒、茅台、五粮液、泸州老窖、剑南春、洋河、郎酒、习酒。
+起泡酒排除白兰地、干邑、威士忌和“香槟区”，避免把干邑误判为起泡酒。
+只处理食品生鲜好价、酒水好价、电脑配件好价、电脑配件精选和好价候选池。
+好价判定先走确定性规则：价格、新低天数、降幅、原价、平台和优惠条件；AI 只写推荐理由与风险提示，不参与是否推送的判定。
+AI 仅使用免费模型：openrouter/free -> nvidia/nemotron-3-super-120b-a12b:free -> nvidia/nemotron-3-ultra-550b-a55b:free -> google/gemma-4-31b-it:free，全挂则不发付费模型、仍发确定性卡片并提示“AI 优惠解读暂不可用”。
+23:00 至 07:00 不推送；没有达标好价时保持沉默。
+只发飞书 interactive card：绿色为新低或历史低价，橙色为普通达标，黄色为需二次确认；标题使用“今日精选好价｜分组”；正文包含商品、价格、来源、优惠条件、规格、推荐理由和风险提示；按钮为“查看商品”和“查看原文”。
+成功或静默时 stdout 为空；失败才输出一行提示。严禁修改、重写、编辑任何脚本或配置文件。
