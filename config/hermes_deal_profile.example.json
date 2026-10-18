@@ -1,0 +1,114 @@
+{
+  "version": 1,
+  "delivery": {
+    "mode": "daily_digest",
+    "time": "11:10",
+    "max_items": 2,
+    "max_cards_per_day": 1,
+    "max_per_group": 1,
+    "immediate_alerts": false,
+    "quiet_hours": [
+      23,
+      7
+    ],
+    "max_age_hours": 36,
+    "min_score": 70
+  },
+  "groups": {
+    "beer": {
+      "label": "啤酒",
+      "enabled": true,
+      "search_queries": [
+        "啤酒"
+      ],
+      "include": [
+        "啤酒",
+        "精酿",
+        "白啤",
+        "黑啤",
+        "IPA",
+        "拉格",
+        "小麦啤酒"
+      ],
+      "exclude": []
+    },
+    "sparkling_wine": {
+      "label": "起泡酒",
+      "enabled": true,
+      "search_queries": [
+        "起泡酒"
+      ],
+      "include": [
+        "起泡酒",
+        "气泡酒",
+        "莫斯卡托",
+        "普罗塞克",
+        "卡瓦",
+        "香槟"
+      ],
+      "exclude": [
+        "白兰地",
+        "干邑",
+        "威士忌",
+        "香槟区"
+      ]
+    },
+    "smart_lock": {
+      "label": "智能门锁",
+      "enabled": true,
+      "search_queries": [
+        "智能门锁"
+      ],
+      "include": [
+        "智能门锁",
+        "指纹锁",
+        "人脸锁",
+        "猫眼锁",
+        "密码锁"
+      ],
+      "exclude": []
+    },
+    "three_c": {
+      "label": "3C数码",
+      "enabled": true,
+      "search_queries": [
+      ],
+      "include": [
+        "3C",
+        "数码",
+        "电脑",
+        "笔记本",
+        "手机",
+        "平板",
+        "显卡",
+        "CPU",
+        "内存",
+        "硬盘",
+        "NAS",
+        "路由器",
+        "显示器",
+        "键盘",
+        "鼠标",
+        "充电器",
+        "移动电源",
+        "耳机",
+        "音箱"
+      ],
+      "exclude": []
+    }
+  },
+  "exclude_keywords": [
+    "白酒",
+    "酱香",
+    "浓香",
+    "清香",
+    "汾酒",
+    "茅台",
+    "五粮液",
+    "泸州老窖",
+    "剑南春",
+    "洋河",
+    "郎酒",
+    "习酒"
+  ]
+}

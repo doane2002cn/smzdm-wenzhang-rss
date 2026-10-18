@@ -82,6 +82,7 @@ COMPUTER_CATEGORY_SOURCES = [
 COMPUTER_INTEREST_URL = "https://m.smzdm.com/interest/akl18dd/"
 DAILY_RANK_URL = "https://post.smzdm.com/"
 GARBAGE_SEARCH_QUERY = "垃圾佬"
+DEAL_PROFILE_PATH = Path("config/hermes_deal_profile.example.json")
 
 FOOD_KEYWORDS = [
     "禽蛋肉类",
@@ -254,6 +255,19 @@ def format_time(value: str) -> str:
 def contains_any(text: str, keywords: Iterable[str]) -> bool:
     upper = text.upper()
     return any(keyword.upper() in upper for keyword in keywords)
+
+
+def load_deal_profile() -> dict:
+    try:
+        profile = json.loads(DEAL_PROFILE_PATH.read_text(encoding="utf-8"))
+    except (OSError, json.JSONDecodeError):
+        return {"delivery": {}, "groups": {}, "exclude_keywords": []}
+    if not isinstance(profile, dict):
+        return {"delivery": {}, "groups": {}, "exclude_keywords": []}
+    profile.setdefault("delivery", {})
+    profile.setdefault("groups", {})
+    profile.setdefault("exclude_keywords", [])
+    return profile
 
 
 class Collector:
@@ -1094,6 +1108,7 @@ def build_digest(
 ) -> None:
     collector = Collector()
     generated_at = datetime.now(TZ)
+    profile = load_deal_profile()
 
     print("抓取优惠精选 RSS...")
     deal_feed = collector.fetch_feed(DEAL_FEED, "优惠精选 RSS", "deal")
@@ -1133,6 +1148,7 @@ def build_digest(
     food_search_deals: list[Item] = []
     alcohol_search_deals: list[Item] = []
     garbage_search_items: list[Item] = []
+    watch_deals: list[Item] = []
     if skip_browser:
         print("跳过浏览器搜索页抓取")
     else:
@@ -1145,6 +1161,40 @@ def build_digest(
         print("抓取电脑配件搜索页...")
         computer_search_deals = fetch_search_deals("电脑配件", limit=20)
         print(f"  获得 {len(computer_search_deals)} 条")
+        for group_name, group in profile.get("groups", {}).items():
+            if not group.get("enabled", False):
+                continue
+            excludes = profile.get("exclude_keywords", []) + group.get("exclude", [])
+            includes = group.get("include", [])
+            for query in group.get("search_queries", []):
+                print(f"抓取好价监控搜索页: {group.get('label', group_name)} / {query}...")
+                found = fetch_search_deals(query, limit=8)
+                accepted = 0
+                for item in found:
+                    text = f"{item.title} {item.description}"
+                    if contains_any(text, excludes):
+                        continue
+                    if includes and not contains_any(text, includes):
+                        continue
+                    item.category = "好价候选池"
+                    item.tags.append(group_name)
+                    watch_deals.append(item)
+                    accepted += 1
+                print(f"  获得 {accepted} 条")
+
+        three_c = profile.get("groups", {}).get("three_c", {})
+        if three_c.get("enabled", False):
+            excludes = profile.get("exclude_keywords", []) + three_c.get("exclude", [])
+            includes = three_c.get("include", [])
+            for item in computer_search_deals:
+                text = f"{item.title} {item.description}"
+                if contains_any(text, excludes):
+                    continue
+                if includes and not contains_any(text, includes):
+                    continue
+                item.category = "好价候选池"
+                item.tags.append("three_c")
+                watch_deals.append(item)
         print(f"抓取垃圾佬搜索页: {GARBAGE_SEARCH_QUERY}...")
         garbage_search_items = fetch_search_items(GARBAGE_SEARCH_QUERY, limit=20)
         print(f"  获得 {len(garbage_search_items)} 条")
@@ -1253,6 +1303,7 @@ def build_digest(
             "computer_interest": [
                 asdict(item) for item in computer_interest_items
             ],
+            "watch_deals": [asdict(item) for item in dedupe(watch_deals)],
             "community_daily_rank": [asdict(item) for item in deep_reads],
         },
     }
@@ -1289,6 +1340,7 @@ def build_digest(
                 "酒水好价": alcohol_deals,
                 "电脑配件好价": computer_deals,
                 "电脑配件精选": computer_interest_items,
+                "好价候选池": dedupe(watch_deals),
                 "社区日榜": deep_reads,
             },
             public_url,
