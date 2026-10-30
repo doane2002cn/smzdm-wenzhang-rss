@@ -27,10 +27,16 @@ import xml.etree.ElementTree as ET
 from datetime import datetime, timedelta, timezone
 from email.utils import parsedate_to_datetime
 
+from smzdm_links import build_smzdm_button
+
+for stream in (sys.stdout, sys.stderr):
+    if hasattr(stream, "reconfigure"):
+        stream.reconfigure(encoding="utf-8")
+
 FEED = "https://doane2002cn.github.io/smzdm-wenzhang-rss/daily_digest.xml"
 ENV_FILE = "/opt/data/.env"
 CARD_API = "/opt/data/workspace/scripts/feishu_card_api.py"
-CARD_FILE = "/tmp/smzdm_deal_card.json"
+CARD_FILE = os.environ.get("SMZDM_DEAL_CARD_FILE", "/tmp/smzdm_deal_card.json")
 CHAT = "oc_b8559c55f250b54d396a8d8105bb1355"
 STATE_FILE = "/opt/data/scripts/state/smzdm_deal_alert.json"
 CST = timezone(timedelta(hours=8))
@@ -464,10 +470,13 @@ def render_card(batch, ai, header_color):
         ]
         elements.append({"tag": "markdown", "content": "\n".join(md)})
         elements.append({"tag": "action", "actions": [
-            {"tag": "button", "text": {"tag": "plain_text", "content": "查看商品"},
-             "type": "primary", "url": d.get("buy") or it["link"]},
-            {"tag": "button", "text": {"tag": "plain_text", "content": "查看原文"},
-             "type": "default", "url": it["link"]},
+            build_smzdm_button(
+                "查看商品",
+                d.get("buy") or it["link"],
+                web_fallback=it["link"],
+                button_type="primary",
+            ),
+            build_smzdm_button("查看原文", it["link"]),
         ]})
     if not ai_ok:
         elements.append({"tag": "markdown",
@@ -483,6 +492,7 @@ def render_card(batch, ai, header_color):
 
 
 def send_card(card):
+    os.makedirs(os.path.dirname(CARD_FILE), exist_ok=True)
     with open(CARD_FILE, "w", encoding="utf-8") as f:
         json.dump(card, f, ensure_ascii=False)
     r = subprocess.run(["python3", CARD_API, "--card-file", CARD_FILE, "--chat", CHAT],
@@ -569,8 +579,11 @@ def main():
     header_color = batch[0]["color"]
     card = render_card(batch, ai, header_color)
     if dry:
+        os.makedirs(os.path.dirname(CARD_FILE), exist_ok=True)
+        with open(CARD_FILE, "w", encoding="utf-8") as f:
+            json.dump(card, f, ensure_ascii=False, indent=1)
         print(json.dumps(card, ensure_ascii=False, indent=1))
-        print(f"\n[dry] header={header_color} 条数={len(batch)}")
+        print(f"\n[dry] header={header_color} 条数={len(batch)} 卡片 JSON 见 {CARD_FILE}")
         return 0
     sent = send_card(card)
     if sent and not test_color:

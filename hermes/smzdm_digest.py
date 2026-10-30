@@ -28,10 +28,16 @@ import xml.etree.ElementTree as ET
 from datetime import datetime, timedelta, timezone
 from email.utils import parsedate_to_datetime
 
+from smzdm_links import build_smzdm_button
+
+for stream in (sys.stdout, sys.stderr):
+    if hasattr(stream, "reconfigure"):
+        stream.reconfigure(encoding="utf-8")
+
 FEED = "https://doane2002cn.github.io/smzdm-wenzhang-rss/daily_digest.xml"
 ENV_FILE = "/opt/data/.env"
 CARD_API = "/opt/data/workspace/scripts/feishu_card_api.py"
-CARD_FILE = "/tmp/smzdm_card.json"
+CARD_FILE = os.environ.get("SMZDM_DIGEST_CARD_FILE", "/tmp/smzdm_card.json")
 CHAT = "oc_b8559c55f250b54d396a8d8105bb1355"
 CST = timezone(timedelta(hours=8))
 
@@ -338,68 +344,114 @@ def fallback_reads(pool):
 
 
 # ── 卡片 ────────────────────────────────────────────────────────────────────
+def link_action_rows(items, label_prefix, button_type="default", per_row=3):
+    """Create compact Feishu action rows for article links."""
+    buttons = [
+        build_smzdm_button(
+            f"{label_prefix} {index}",
+            item["link"],
+            button_type=button_type,
+        )
+        for index, item in enumerate(items, 1)
+    ]
+    return [
+        {"tag": "action", "actions": buttons[start:start + per_row]}
+        for start in range(0, len(buttons), per_row)
+    ]
+
+
+def card_preview(card):
+    """Render a readable dry-run preview including button labels."""
+    blocks = []
+    for element in card.get("elements", []):
+        if element.get("tag") == "markdown":
+            blocks.append(element.get("content", ""))
+        elif element.get("tag") == "action":
+            labels = [
+                action.get("text", {}).get("content", "")
+                for action in element.get("actions", [])
+            ]
+            blocks.append("[" + " | ".join(label for label in labels if label) + "]")
+    return "\n\n".join(block for block in blocks if block)
+
+
 def render_card(sections, reads, summary, last_build, delayed, ai_broken, pool):
     by_n = {i + 1: it for i, it in enumerate(pool)}
     stamp = datetime.now(CST).strftime("%Y-%m-%d")
+    elements = []
     md = []
 
     if ai_broken:
         md += ["⚠️ **AI 分析暂不可用，以下为原始摘要**", ""]
 
     md += ["**📌 今日必读**"]
+    read_items = []
     if reads:
         for i, r in enumerate(reads, 1):
             it = by_n.get(int(r["n"]))
             if not it:
                 continue
-            md.append(f"{i}. [{it['title']}]({it['link']})")
+            md.append(f"{i}. **{it['title']}**")
             why = (r.get("why") or "").strip()
             if why:
                 md.append(f"   推荐理由：{why}")
+            read_items.append(it)
     else:
         md.append("（今日无）")
-    md.append("")
+    elements.append({"tag": "markdown", "content": "\n".join(md)})
+    elements.extend(link_action_rows(read_items, "必读", button_type="primary"))
 
     for emoji, title, key in (("🤖", SEC_AI, SEC_AI), ("💻", SEC_SW, SEC_SW),
                               ("🖥", SEC_LAJI, SEC_LAJI)):
         items = sections.get(key) or []
-        md.append(f"**{emoji} {title}**（{len(items)} 条）")
-        for i, it in enumerate(items[:MAX_PER_SECTION], 1):
-            md.append(f"{i}. [{it['title']}]({it['link']})")
+        shown = items[:MAX_PER_SECTION]
+        md = [f"**{emoji} {title}**（{len(items)} 条）"]
+        for i, it in enumerate(shown, 1):
+            md.append(f"{i}. **{it['title']}**")
             if it.get("intro"):
                 md.append(f"   简介：{it['intro']}")
         if not items:
             md.append("（今日无）")
-        md.append("")
+        elements.append({"tag": "markdown", "content": "\n".join(md)})
+        elements.extend(link_action_rows(
+            shown,
+            {"AI 应用探索": "AI", "软件应用": "软件", "垃圾佬每日精选": "垃圾佬"}[key],
+        ))
 
     rank = sections.get(SEC_RANK) or []
-    md.append(f"**🏆 社区日榜完整榜单**（{len(rank)}/{RANK_EXPECT} 条）")
+    md = [f"**🏆 社区日榜完整榜单**（{len(rank)}/{RANK_EXPECT} 条）"]
     for i, it in enumerate(rank, 1):
-        line = f"{i}. [{it['title']}]({it['link']})"
+        line = f"{i}. {it['title']}"
         md.append(f"**{line}**" if i <= 3 else line)
     if not rank:
         md.append("（今日无）")
-    md.append("")
+    elements.append({"tag": "markdown", "content": "\n".join(md)})
+    elements.extend(link_action_rows(rank, "日榜"))
 
     if summary:
-        md += ["**🧭 今日总结**", summary, ""]
+        elements.append({
+            "tag": "markdown",
+            "content": "\n".join(["**🧭 今日总结**", summary]),
+        })
 
     ts = last_build.strftime("%Y-%m-%d %H:%M") if last_build else "未知"
-    md.append(f"**🕐 数据更新时间**：{ts}（北京时间）")
+    footer = [f"**🕐 数据更新时间**：{ts}（北京时间）"]
     if delayed:
-        md.append("⚠️ 数据可能延迟：RSS 尚未更新到当前小时那一版")
+        footer.append("⚠️ 数据可能延迟：RSS 尚未更新到当前小时那一版")
+    elements.append({"tag": "markdown", "content": "\n".join(footer)})
 
     card = {
         "config": {"wide_screen_mode": True},
         "header": {"title": {"tag": "plain_text",
                              "content": f"什么值得买文章精选｜{stamp}"},
                    "template": "blue"},
-        "elements": [{"tag": "markdown", "content": "\n".join(md)}],
+        "elements": elements,
     }
     return card
 
 
 def send_card(card):
+    os.makedirs(os.path.dirname(CARD_FILE), exist_ok=True)
     with open(CARD_FILE, "w", encoding="utf-8") as f:
         json.dump(card, f, ensure_ascii=False)
     r = subprocess.run(["python3", CARD_API, "--card-file", CARD_FILE, "--chat", CHAT],
@@ -446,9 +498,11 @@ def main():
 
     card = render_card(sections, reads, summary, last_build, delayed, ai_broken, pool)
     if dry:
-        body = card["elements"][0]["content"]
+        os.makedirs(os.path.dirname(CARD_FILE), exist_ok=True)
+        with open(CARD_FILE, "w", encoding="utf-8") as f:
+            json.dump(card, f, ensure_ascii=False, indent=1)
         print("─" * 30 + " CARD PREVIEW (dry-run) " + "─" * 30)
-        print(body)
+        print(card_preview(card))
         print("─" * 70)
         print(f"[dry-run] 未发送；卡片 JSON 见 {CARD_FILE}")
         return 0
