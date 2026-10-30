@@ -15,6 +15,7 @@
 契约: 成功或无好价 → stdout 为空(静默)；出错 → 打印一行提示(会被投递)，退出码 0
 用法: python3 smzdm_deal_alert.py [--dry-run] [--test-color green|orange|yellow]
 """
+import html
 import json
 import os
 import re
@@ -415,10 +416,10 @@ def call_llm(prompt):
 def buy_link(post_url):
     """从爆料页抓 go.smzdm.com 商品跳转；失败退回爆料页本身。"""
     try:
-        html = fetch(post_url, timeout=15)
-        m = re.search(r"//go\.smzdm\.com/\S+", html)
+        page = html.unescape(fetch(post_url, timeout=15))
+        m = re.search(r"(?:https?:)?//go\.smzdm\.com/[^\s\"'<>]+", page)
         if m:
-            u = re.sub(r"[\\\"'<>),\]]+$", "", m.group(0))    # 去掉 JSON/HTML 转义的尾字符
+            u = re.sub(r"[\\),\]}]+$", "", m.group(0))
             return ("https:" + u) if u.startswith("//") else u
     except Exception as e:                                     # noqa: BLE001
         print(f"[warn] 抓商品链接失败: {type(e).__name__}", file=sys.stderr)

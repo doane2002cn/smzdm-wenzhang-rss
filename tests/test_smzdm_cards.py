@@ -3,11 +3,12 @@ import sys
 import unittest
 from datetime import datetime
 from pathlib import Path
+from unittest.mock import patch
 
 ROOT = Path(__file__).resolve().parents[1]
 sys.path.insert(0, str(ROOT / "hermes"))
 
-from smzdm_deal_alert import render_card as render_deal_card  # noqa: E402
+from smzdm_deal_alert import buy_link, render_card as render_deal_card  # noqa: E402
 from smzdm_digest import (  # noqa: E402
     SEC_AI,
     SEC_LAJI,
@@ -27,6 +28,15 @@ def article(index, section):
 
 
 class SmzdmCardTests(unittest.TestCase):
+    def test_buy_link_stops_at_html_attribute_boundary(self):
+        page = (
+            '<img data-url="https://go.smzdm.com/abc/def">'
+            '</li><img data-url="https://go.smzdm.com/second">'
+        )
+        with patch("smzdm_deal_alert.fetch", return_value=page):
+            self.assertEqual(buy_link("https://post.smzdm.com/p/deal/"),
+                             "https://go.smzdm.com/abc/def")
+
     def test_digest_uses_text_headings_and_app_first_buttons(self):
         ai = [article(1, "ai")]
         software = [article(1, "software")]
