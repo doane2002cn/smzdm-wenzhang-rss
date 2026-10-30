@@ -15,6 +15,7 @@
 契约: 成功或无好价 → stdout 为空(静默)；出错 → 打印一行提示(会被投递)，退出码 0
 用法: python3 smzdm_deal_alert.py [--dry-run] [--test-color green|orange|yellow]
 """
+import html
 import json
 import os
 import re
@@ -27,10 +28,16 @@ import xml.etree.ElementTree as ET
 from datetime import datetime, timedelta, timezone
 from email.utils import parsedate_to_datetime
 
+from smzdm_links import build_smzdm_button
+
+for stream in (sys.stdout, sys.stderr):
+    if hasattr(stream, "reconfigure"):
+        stream.reconfigure(encoding="utf-8")
+
 FEED = "https://doane2002cn.github.io/smzdm-wenzhang-rss/daily_digest.xml"
 ENV_FILE = "/opt/data/.env"
 CARD_API = "/opt/data/workspace/scripts/feishu_card_api.py"
-CARD_FILE = "/tmp/smzdm_deal_card.json"
+CARD_FILE = os.environ.get("SMZDM_DEAL_CARD_FILE", "/tmp/smzdm_deal_card.json")
 CHAT = "oc_b8559c55f250b54d396a8d8105bb1355"
 STATE_FILE = "/opt/data/scripts/state/smzdm_deal_alert.json"
 CST = timezone(timedelta(hours=8))
@@ -409,10 +416,10 @@ def call_llm(prompt):
 def buy_link(post_url):
     """从爆料页抓 go.smzdm.com 商品跳转；失败退回爆料页本身。"""
     try:
-        html = fetch(post_url, timeout=15)
-        m = re.search(r"//go\.smzdm\.com/\S+", html)
+        page = html.unescape(fetch(post_url, timeout=15))
+        m = re.search(r"(?:https?:)?//go\.smzdm\.com/[^\s\"'<>]+", page)
         if m:
-            u = re.sub(r"[\\\"'<>),\]]+$", "", m.group(0))    # 去掉 JSON/HTML 转义的尾字符
+            u = re.sub(r"[\\),\]}]+$", "", m.group(0))
             return ("https:" + u) if u.startswith("//") else u
     except Exception as e:                                     # noqa: BLE001
         print(f"[warn] 抓商品链接失败: {type(e).__name__}", file=sys.stderr)
@@ -464,10 +471,13 @@ def render_card(batch, ai, header_color):
         ]
         elements.append({"tag": "markdown", "content": "\n".join(md)})
         elements.append({"tag": "action", "actions": [
-            {"tag": "button", "text": {"tag": "plain_text", "content": "查看商品"},
-             "type": "primary", "url": d.get("buy") or it["link"]},
-            {"tag": "button", "text": {"tag": "plain_text", "content": "查看原文"},
-             "type": "default", "url": it["link"]},
+            build_smzdm_button(
+                "查看商品",
+                d.get("buy") or it["link"],
+                web_fallback=it["link"],
+                button_type="primary",
+            ),
+            build_smzdm_button("查看原文", it["link"]),
         ]})
     if not ai_ok:
         elements.append({"tag": "markdown",
@@ -483,6 +493,7 @@ def render_card(batch, ai, header_color):
 
 
 def send_card(card):
+    os.makedirs(os.path.dirname(CARD_FILE), exist_ok=True)
     with open(CARD_FILE, "w", encoding="utf-8") as f:
         json.dump(card, f, ensure_ascii=False)
     r = subprocess.run(["python3", CARD_API, "--card-file", CARD_FILE, "--chat", CHAT],
@@ -569,8 +580,11 @@ def main():
     header_color = batch[0]["color"]
     card = render_card(batch, ai, header_color)
     if dry:
+        os.makedirs(os.path.dirname(CARD_FILE), exist_ok=True)
+        with open(CARD_FILE, "w", encoding="utf-8") as f:
+            json.dump(card, f, ensure_ascii=False, indent=1)
         print(json.dumps(card, ensure_ascii=False, indent=1))
-        print(f"\n[dry] header={header_color} 条数={len(batch)}")
+        print(f"\n[dry] header={header_color} 条数={len(batch)} 卡片 JSON 见 {CARD_FILE}")
         return 0
     sent = send_card(card)
     if sent and not test_color:
