@@ -1,13 +1,5 @@
 {
   "urls": {
-    "https://post.smzdm.com/p/ae6q8zv4/": {
-      "last_selected_date": "2026-10-26",
-      "first_seen_date": "2026-10-26"
-    },
-    "https://post.smzdm.com/p/a82p9z0q/": {
-      "last_selected_date": "2026-10-26",
-      "first_seen_date": "2026-10-26"
-    },
     "https://post.smzdm.com/p/a03x87w8/": {
       "last_selected_date": "2026-10-27",
       "first_seen_date": "2026-10-27"
@@ -103,7 +95,19 @@
     "https://post.smzdm.com/p/a6z4ovmz/": {
       "last_selected_date": "2026-11-09",
       "first_seen_date": "2026-11-09"
+    },
+    "https://post.smzdm.com/talk/p/a5rpk64x/": {
+      "last_selected_date": "2026-11-10",
+      "first_seen_date": "2026-11-10"
+    },
+    "https://post.smzdm.com/p/a5rpkrx7/": {
+      "last_selected_date": "2026-11-10",
+      "first_seen_date": "2026-11-10"
+    },
+    "https://post.smzdm.com/p/aggw8g56/": {
+      "last_selected_date": "2026-11-10",
+      "first_seen_date": "2026-11-10"
     }
   },
-  "updated_at": "2026-11-09T15:16:27.408406+08:00"
+  "updated_at": "2026-11-10T01:51:31.141218+08:00"
 }
