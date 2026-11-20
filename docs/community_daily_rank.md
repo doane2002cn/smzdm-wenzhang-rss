@@ -1,30 +1,30 @@
 # 社区日榜完整榜单
 
-- 抓取时间：2026-11-20 17:15:06 CST
+- 抓取时间：2026-11-21 02:03:44 CST
 - 来源：https://post.smzdm.com/ 首页社区榜日榜
 - 条目数：12
 
-1. [别等心脏报警才重视！这 10 种食物，是心脏的“守护神”](https://post.smzdm.com/talk/p/awwd209p/)
-   - 别等心脏报警才重视！这 10 种食物，是心脏的“守护神” 锐评数码专家 4
+1. [7吨大闸蟹整批退运，检出“世纪之毒”：超标0.6皮克意味着什么](https://post.smzdm.com/p/aqrzd7ev/)
+   - 7吨大闸蟹整批退运，检出“世纪之毒”：超标0.6皮克意味着什么 23
 2. [HTC HD2：它本该死在Windows Mobile里，却被刷成了不死之身](https://post.smzdm.com/p/a03zp670/)
-   - HTC HD2：它本该死在Windows Mobile里，却被刷成了不死之身 电影fans 7
-3. [你小脚趾上的指甲也是分两瓣，一大一小的吗？](https://post.smzdm.com/p/aqrze8v2/)
-   - 你小脚趾上的指甲也是分两瓣，一大一小的吗？ 装懂青年 19
-4. [革新汽车百年设计！方程豹钛9首发比亚迪黑科技：一键消失主驾方向盘](https://post.smzdm.com/p/ad7z00lz/)
-   - 革新汽车百年设计！方程豹钛9首发比亚迪黑科技：一键消失主驾方向盘 快科技 7
-5. [7吨大闸蟹整批退运，检出“世纪之毒”：超标0.6皮克意味着什么](https://post.smzdm.com/p/aqrzd7ev/)
-   - 7吨大闸蟹整批退运，检出“世纪之毒”：超标0.6皮克意味着什么 9
-6. [自古华擎出妖板：24年，工程师是天才，工厂是酒鬼](https://post.smzdm.com/p/aqrzd687/)
-   - 自古华擎出妖板：24年，工程师是天才，工厂是酒鬼 12
-7. [离谱，DeepSeek 崩了 5 小时，大家却喊：梁圣恩情还不完？？？](https://post.smzdm.com/p/aomqvkk7/)
-   - 离谱，DeepSeek 崩了 5 小时，大家却喊：梁圣恩情还不完？？？ 程序员鱼皮 8
-8. [不断攀升的老年艾滋病，无处安放的生理需要，做好3点预防艾滋病](https://post.smzdm.com/p/al39k3ze/)
-   - 不断攀升的老年艾滋病，无处安放的生理需要，做好3点预防艾滋病 39健康 8
-9. [方程豹钛9首发折叠智舱：方向盘收起来那10秒，和普通六座SUV差在哪](https://post.smzdm.com/p/aomq3w0r/)
-   - 方程豹钛9首发折叠智舱：方向盘收起来那10秒，和普通六座SUV差在哪 9
-10. [给13万买的model x装行车记录仪，世界果然是个巨大的草台班子](https://post.smzdm.com/p/apqrwnew/)
-   - 给13万买的model x装行车记录仪，世界果然是个巨大的草台班子 维修小能手-雷恩 14
-11. [酷态科10号Ultra充电头“咬人”：极低概率异常输出20V，修复固件已OTA推送](https://post.smzdm.com/p/aggwegv7/)
-   - 酷态科10号Ultra充电头“咬人”：极低概率异常输出20V，修复固件已OTA推送 27
-12. [马上停止吃这4种蔬菜，已被列入伤身“黑名单”，别再当家常菜了](https://post.smzdm.com/p/am9vlz4z/)
-   - 马上停止吃这4种蔬菜，已被列入伤身“黑名单”，别再当家常菜了 39健康 12
+   - HTC HD2：它本该死在Windows Mobile里，却被刷成了不死之身 电影fans 10
+3. [自古华擎出妖板：24年，工程师是天才，工厂是酒鬼](https://post.smzdm.com/p/aqrzd687/)
+   - 自古华擎出妖板：24年，工程师是天才，工厂是酒鬼 23
+4. [华为星芒O1Pro今晚开卖，比5999的PuraXView少了什么](https://post.smzdm.com/p/am9v0gg4/)
+   - 华为星芒O1Pro今晚开卖，比5999的PuraXView少了什么 6
+5. [百天深度实测顶级画质OLED显示器，TCL X3B游戏、办公能否兼顾？](https://post.smzdm.com/p/axkd8zw9/)
+   - 百天深度实测顶级画质OLED显示器，TCL X3B游戏、办公能否兼顾？ 木子加加 39
+6. [Win+Mac双持用户效率提升利器，肯辛通 TB900 轨迹球到底多好用？](https://post.smzdm.com/talk/p/a6z4nqno/)
+   - Win+Mac双持用户效率提升利器，肯辛通 TB900 轨迹球到底多好用？ 木子加加 40
+7. [《持械入宋》里的李清棠，满足了我对李清照的所有想象](https://post.smzdm.com/p/a03zpp28/)
+   - 《持械入宋》里的李清棠，满足了我对李清照的所有想象 老哥帮你探探路 26
+8. [APEC晚宴上的“荔枝冰酒”突然卖爆了，冰酒到底是什么酒？](https://post.smzdm.com/p/al39zvmo/)
+   - APEC晚宴上的“荔枝冰酒”突然卖爆了，冰酒到底是什么酒？ mediomo 23
+9. [80%的人深蹲都做错了！深蹲常见错误解析与纠正指南](https://post.smzdm.com/talk/p/am9v04wd/)
+   - 80%的人深蹲都做错了！深蹲常见错误解析与纠正指南 数码专评 3
+10. [装不起新机就折腾老机：5元BIOS+70元CPU，叫醒你的H110](https://post.smzdm.com/p/anvm2z6p/)
+   - 装不起新机就折腾老机：5元BIOS+70元CPU，叫醒你的H110 26
+11. [手慢无！今日苹果App Store限免27款精选！（11月20日）](https://post.smzdm.com/talk/p/az8794k5/)
+   - 手慢无！今日苹果App Store限免27款精选！（11月20日） 苹果限免课代表 1
+12. [颠覆百年座舱！钛9折叠方向盘真的看傻了](https://post.smzdm.com/talk/p/a9543wd0/)
+   - 颠覆百年座舱！钛9折叠方向盘真的看傻了 宝爸爱好物 3
